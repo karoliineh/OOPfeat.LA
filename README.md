@@ -1,3 +1,2 @@
 # OOPfeat.LA
-OOP kursuse rühmatöö
-Lause- ja predikaatarvutuse põhisamaväärsuste harjutamine
+OOP kursuse rühmatöö: lause- ja predikaatarvutuse põhisamaväärsuste harjutamine
