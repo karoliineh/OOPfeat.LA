@@ -1,0 +1,17 @@
+﻿Kahekordse eituse omadus, ¬¬F ≡ , F
+Idempotentsuse omadus, F∧F ≡ , F
+Idempotentsuse omadus, F∨F ≡ , F
+Kommutatiivsuse omadus, F∧G ≡ , G∧F
+Kommutatiivsuse omadus, F∨G ≡ , G∨F
+Assotsiatiivsuse omadus, (F∧G)∧H ≡ , F∧(G∧H)
+Assotsiatiivsuse omadus, (F∨G)∨H ≡ , F∨(G∨H)
+Distributiivsuse omadus, F∧(G∨H) ≡ , F∧G∨F∧H
+Distributiivsuse omadus, F∨(G∧H) ≡ , (F∨G)∧(F∨H)
+Neelamisomadus, F∧(F∨G) ≡ , F
+Neelamisomadus, F∨F∧G ≡ , F
+De Morgani seadus, ¬(F∧G) ≡ , ¬F∨¬G
+De Morgani seadus, ¬(F∨G) ≡ , ¬F∧¬G
+Implikatsiooni avaldis konjunktsiooni kaudu, F⇒G ≡ , ¬(F∧¬G)
+Implikatsiooni avaldis disjunktsiooni kaudu, F⇒G ≡ , ¬F∨G
+Konjunktsiooni avaldis implikatsiooni kaudu, F∧G ≡ , ¬(F⇒¬G)
+Disjunktsiooni avaldis implikatsiooni kaudu, F∨G ≡ , ¬F⇒G
