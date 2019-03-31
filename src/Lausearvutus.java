@@ -15,7 +15,7 @@ public class Lausearvutus {
         List<Valem> tagasta = new ArrayList<>();
         try (java.util.Scanner sc = new java.util.Scanner(fail, "UTF-8")) {
             while (sc.hasNextLine()) {
-                String[] rida = sc.nextLine().split(", ");
+                String[] rida = sc.nextLine().split(";");
                 Valem valem = new Valem(rida[0], rida[1], rida[2]);
                 tagasta.add(valem);
             }
@@ -41,8 +41,9 @@ public class Lausearvutus {
             return false;
         }
         else {
-            System.out.println("C'mon wtf, sul pole ikka veel põhisamaväärsused selged v?!");
+            System.out.println("Vale vastus :( ");
         }
+        System.out.println();
         return true;
 
 
@@ -53,7 +54,7 @@ public class Lausearvutus {
         List<Valem> valemiValik = valemidFailist();
 
         while (true) {
-            System.out.println("\r\n".repeat(50));
+            // System.out.println("\r\n".repeat(50)); // - wtf?
             boolean next = genereeriValem(valemiValik);
             if (next == false) {
                 break;
