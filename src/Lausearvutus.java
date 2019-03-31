@@ -10,46 +10,56 @@ public class Lausearvutus {
         return vastus;
     }
 
-    static List<String[]> valemidFailist() throws Exception {
+    static List<Valem> valemidFailist() throws Exception {
         java.io.File fail = new java.io.File("Valemid.txt");
-        List<String[]> tagasta = new ArrayList<>();
+        List<Valem> tagasta = new ArrayList<>();
         try (java.util.Scanner sc = new java.util.Scanner(fail, "UTF-8")) {
-            String[] valem;
             while (sc.hasNextLine()) {
-                String rida = sc.nextLine();
-                valem = rida.split(", ");
+                String[] rida = sc.nextLine().split(", ");
+                Valem valem = new Valem(rida[0], rida[1], rida[2]);
                 tagasta.add(valem);
             }
         }
         return tagasta;
     }
 
-    static void genereeriValem() throws Exception {
-
-        List<String[]> valemiValik = valemidFailist();
+    static boolean genereeriValem(List<Valem> valemiValik) throws Exception {
 
         int juhuslik = (int) (Math.random() * valemiValik.size());
 
-        System.out.println(valemiValik.get(juhuslik)[0]);
+        System.out.println(valemiValik.get(juhuslik).getKirjeldus());
         System.out.println("Sümbolid kopeerimiseks: ¬ ∧ ∨ ⇒ ");
         System.out.println("                            ^ need asendame pärast nuppudega (siis coolim ja mugavam)");
-        System.out.print("Kirjuta samaväärne valem (ilma tühikuteta) " + valemiValik.get(juhuslik)[1]);
+        System.out.print("Kirjuta samaväärne valem (ilma tühikuteta) " + valemiValik.get(juhuslik).getVasak());
         String vastus = kasutajaSisend();
         System.out.println();
 
-        if (vastus.equals(valemiValik.get(juhuslik)[2])) {
+        if (vastus.equals(valemiValik.get(juhuslik).getParem())) {
             System.out.println("Tubli");
+        }
+        else if (vastus.equals("stop")) {
+            return false;
         }
         else {
             System.out.println("C'mon wtf, sul pole ikka veel põhisamaväärsused selged v?!");
         }
+        return true;
 
 
     }
 
     public static void main(String[] args) throws Exception {
 
-        genereeriValem();
+        List<Valem> valemiValik = valemidFailist();
+
+        while (true) {
+            System.out.println("\r\n".repeat(50));
+            boolean next = genereeriValem(valemiValik);
+            if (next == false) {
+                break;
+            }
+        }
+
 
     }
 }
